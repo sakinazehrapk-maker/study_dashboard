@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Study Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Desk OS</h2>
+        <div class="theme-selector">
+            <h3>Themes</h3>
+            <button onclick="setTheme('pink')">
+                Pink
+            </button>
+            <button onclick="setTheme('cyber')">
+                Cyber
+            </button>
+            <button onclick="setTheme('academia')">
+                Academia
+            </button>
+            <button onclick="setTheme('lavender')">
+                Lavender
+            </button>
+
+</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Focus</li>
+            <li>Analytics</li>
+            <li>Achievements</li>
+            <li>Music</li>
+        </ul>
+    </div>
+    <div id="particles-js"></div>
+
+  <div class="main-content">
+
+<div class="container" id="dashboard">
+
+    <div class="top-bar">
+      <button id="themeToggle">Dark Mode</button>
+      <button id="focusToggle">Focus Mode</button>
+    </div>
+    <h1>Smart Study Dashboard </h1>
+
+    
+    <div class="card">
+      <h2>Current Time</h2>
+      <p id="clock">00:00:00</p>
+    </div>
+
+    
+    <div class="card">
+      <h2>todays goals</h2>
+
+      <div class="task-input-area">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter a task"
+        >
+         <button id="addBtn">Add Task</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
+
+    
+    <div class="card">
+      <h2>Pomodoro Timer</h2>
+
+      <p id="timer">25:00</p>
+
+      <button id="startBtn">Start Timer</button>
+    </div>
+
+    <div class="card">
+        <h2>Study Streak</h2>
+        <p>Current Streak:<span id="streakCount">0</span>days</p>
+        <p id="streakMessage">start studying today!</p>
+        <button onclick="markStudyDay()">I Studied Today</button>
+    </div>
+
+    <div class="card">
+        <h2>study XP</h2>
+        <p>Level:<span id="level">1</span></p>
+        <p>XP:<span id="xp">0</span>/100</p>
+        <div class="xp-bar">
+            <div class="xp-fill" id="xpFill"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>achievements</h2>
+        <div id="badgesContainer">
+            <p>no achievements yet..</p>
+        </div>
+    </div>
+    <div class="card">
+        <h2>productivy analytics</h2>
+        <canvas  id="studyChart"></canvas>
+    </div>
+
+    
+    <div class="card">
+      <h2>Daily Motivation</h2>
+       <p id="quote">
+        Small progress is still progress.
+      </p>
+    </div>
+
+  </div>
+  <div class="card">
+    <h2>Lofi music</h2>
+    <div class="music-player">
+        <iframe
+        width="100%"
+        height="250"
+        src="https://www.youtube.com/embed/3jWRrafhO7M"
+        title="Lofi music"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</div>
+</body>
+</html>
