@@ -237,17 +237,24 @@ animation:popIn 0.4sease;
 
 body {
 
+  margin: 0;
+
+  min-height: 100vh;
+
   display: flex;
 
-  background: linear-gradient(
+  background: var(--main-bg);
+
+  background-attachment: fixed;
+
+  transition: background 0.5s ease;
+
+  --main-bg: linear-gradient(
     to right,
     #ffd6e7,
     #ffeaf4
   );
 }
-
-
-
 .sidebar {
 
   width: 250px;
@@ -310,6 +317,8 @@ body {
   width: calc(100% - 270px);
 
   padding: 30px;
+
+  background: transparent;
 }
 
 
