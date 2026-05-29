@@ -415,6 +415,65 @@ body {
   background: rgba(255,255,255,0.3);
 }
 
+.forest-theme {
+
+  --main-bg: linear-gradient(
+    to right,
+    #0b1f1a,
+    #123524,
+    #1e3c72
+  );
+}
+
+.forest-theme .card,
+.forest-theme .sidebar {
+
+  background: rgba(0,0,0,0.35);
+
+  backdrop-filter: blur(15px);
+
+  color: #d4ffe9;
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.forest-theme h1,
+.forest-theme h2,
+.forest-theme h3,
+.forest-theme p,
+.forest-theme li {
+
+  color: #b8ffd8;
+}
+
+.forest-theme button {
+
+  background: linear-gradient(
+    to right,
+    #14532d,
+    #1e3c72
+  );
+
+  color: white;
+}
+
+.forest-theme input,
+.forest-theme textarea {
+
+  background: rgba(255,255,255,0.08);
+
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.forest-theme .note {
+
+  background: #1b4332;
+
+  color: #d8f3dc;
+}
+
 .notes-input{
   display:flex;
   flex-direction:column;

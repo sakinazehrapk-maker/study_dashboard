@@ -227,7 +227,7 @@ function updateChart() {
 
 
 function setTheme(theme) {
-  document.body.classList.remove("pink-theme", "cyber-theme", "academia-theme", "lavender-theme");
+  document.body.classList.remove("pink-theme", "cyber-theme", "academia-theme", "lavender-theme", "forest-theme");
   document.body.classList.add(theme + "-theme");
   localStorage.setItem("theme", theme);
 }
@@ -363,9 +363,6 @@ function markStudyDay() {
   }
 })();
 
-// =========================
-// WEATHER WIDGET
-// =========================
 
 async function loadWeather() {
 
