@@ -494,3 +494,13 @@ body {
   cursor:pointer;
   font-size:18px;
 }
+#weatherWidget{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  font-size:18px;
+}
+.weather-temp{
+  font-size:40px;
+  font-weight: bold;
+}

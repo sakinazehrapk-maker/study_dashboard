@@ -362,3 +362,54 @@ function markStudyDay() {
     document.getElementById("streakMessage").innerText = `🔥 ${streak} day streak!`;
   }
 })();
+
+// =========================
+// WEATHER WIDGET
+// =========================
+
+async function loadWeather() {
+
+  const apiKey = "c0c93606865bde03f6689b27dd000ef0";
+
+  const city = "Karachi";
+
+  const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  try {
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    const widget =
+      document.getElementById("weatherWidget");
+
+    widget.innerHTML = `
+
+      <div class="weather-temp">
+        ${Math.round(data.main.temp)}°C
+      </div>
+
+      <p>
+        ${data.weather[0].main}
+      </p>
+
+      <p>
+        📍 ${data.name}
+      </p>
+    `;
+
+  } catch (error) {
+
+    console.log(error);
+
+    document.getElementById(
+      "weatherWidget"
+    ).innerHTML =
+      "<p>Weather failed to load.</p>";
+  }
+
+}
+
+loadWeather();
