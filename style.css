@@ -334,12 +334,6 @@ body {
 }
 
 
-/* =========================
-   THEME CUSTOMIZER
-========================= */
-
-/* PINK */
-
 .pink-theme {
 
   --main-bg: linear-gradient(
@@ -349,7 +343,6 @@ body {
   );
 }
 
-/* CYBER */
 
 .cyber-theme {
 
@@ -378,7 +371,7 @@ body {
   color: #00fff7;
 }
 
-/* ACADEMIA */
+
 
 .academia-theme {
 
@@ -406,7 +399,6 @@ body {
   color: #f5deb3;
 }
 
-/* LAVENDER */
 
 .lavender-theme {
 
@@ -421,4 +413,84 @@ body {
 .lavender-theme .sidebar {
 
   background: rgba(255,255,255,0.3);
+}
+
+.notes-input{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
+}
+.notes-input textarea{
+  min-height:100px;
+  resize:none;
+}
+#notescontainer{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.note {
+  width: 200px;
+  min-height: 150px;
+  padding: 15px;
+  border-radius: 20px;
+  background: #fff7a8;
+  color: #333;
+  position: relative;
+  margin-top: 10px;
+}
+.note button{
+  position:absolute;
+  top: 10px;
+  right:10px;
+  background:transparent;
+  cursor:pointer;
+  font-size:16px;
+}
+.note p{
+  margin-top:25px;
+  white-space: pre-wrap;
+}
+.dark-mode .note{
+  background:#ffe066;
+  color:black;
+}
+.dark-mode .note{
+  background:#ffe066;
+  color:black;
+}
+.planner-inputs{
+  display: flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+#plannerContainer{
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+}
+.plan{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+}
+.plan-info{
+  display:flex;
+  flex-direction: column;
+}
+.plan-date{
+  font-size: 14px;
+  opacity:0.7s;
+}
+.plan button{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;
 }

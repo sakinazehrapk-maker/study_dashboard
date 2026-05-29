@@ -102,6 +102,41 @@
             <p>no achievements yet..</p>
         </div>
     </div>
+
+    <div class="card">
+      <h2>sticky notess</h2>
+      <textarea
+      id="noteinput"
+      placeholder="write your note.."
+      ></textarea>
+      <button id="addNoteBtn">
+        add note
+      </button>
+    </div>
+  
+    <div id="notesContainer">
+
+    </div>
+
+    <div class="card">
+      <h2>study planner</h2>
+      <div class="planner-inputs">
+        <input 
+        type="text"
+        id="plannerText"
+        placeholder="Textor Exam.."
+        >
+        <input 
+        type="date"
+        id="plannerDate"
+        >
+        <button id="addPlannerBtn">
+          add plan
+        </button>
+      </div>
+      <div id="plannerContainer"></div>
+    </div>
+
     <div class="card">
         <h2>productivy analytics</h2>
         <canvas  id="studyChart"></canvas>
@@ -131,9 +166,9 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </div>
 </body>
 </html>

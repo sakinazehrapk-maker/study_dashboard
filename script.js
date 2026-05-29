@@ -3,10 +3,36 @@ function updateClock() {
   document.getElementById("clock").innerText =
     now.toLocaleTimeString();
 }
-
 setInterval(updateClock, 1000);
 updateClock();
-
+window.addEventListener("DOMContentLoaded", () => {
+  const ctx = document.getElementById("studyChart");
+  if (!ctx) {
+    console.log("Chart canvas not found");
+    return;
+  }
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Tasks", "Pomodoros", "Level"],
+      datasets: [{
+        label: "Progress",
+        data: [
+          tasksCompleted || 0,
+          pomodorosCompleted || 0,
+          playerLevel || 1
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+});
 const quotes = [
   "Small progress is still progress.",
   "Discipline creates freedom.",
@@ -362,3 +388,130 @@ if (savedTheme) {
 
   setTheme("pink");
 }
+window.addEventListener("DOMContentLoaded", () => {
+
+  let notes =
+    JSON.parse(localStorage.getItem("notes")) || [];
+
+  const input =
+    document.getElementById("noteInput");
+
+  const btn =
+    document.getElementById("addNoteBtn");
+
+  const container =
+    document.getElementById("notesContainer");
+
+  function saveNotes() {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }
+
+  function renderNotes() {
+
+    container.innerHTML = "";
+
+    notes.forEach((note, index) => {
+
+      const div =
+        document.createElement("div");
+
+      div.classList.add("note");
+
+      div.innerHTML = `
+        <button onclick="deleteNote(${index})">❌</button>
+        <p>${note}</p>
+      `;
+
+      container.appendChild(div);
+
+    });
+
+  }
+
+  function addNote() {
+
+    const text =
+      input.value.trim();
+
+    if (!text) return;
+
+    notes.push(text);
+
+    saveNotes();
+
+    renderNotes();
+
+    input.value = "";
+  }
+
+  window.deleteNote = function(index) {
+
+    notes.splice(index, 1);
+
+    saveNotes();
+
+    renderNotes();
+  }
+
+  btn.addEventListener("click", addNote);
+
+  renderNotes();
+
+});
+window.addEventListener("DOMContentLoaded",()=>{
+  let plans=
+  JSON.parse(localStorage.getItem("plans"))||[];
+  const textInput=document.getElementById("plannerText");
+  const dateInput=
+  document.getElementById("plannerDate");
+  const addBtn=document.getElementById("addPlannerBtn");
+  const container=document.getElementById("plannerContainer");
+  function savePlans(){
+    localStorage.setItem(
+      "plans",
+      JSON.stringify(plans)
+    );
+  }
+  function renderPlans(){
+    container.innerHTML="";
+    plans.forEach((paln,index)=>{
+      const div=
+      document.createElement("div");
+      div.classList.add("plan");
+      div.innerHTML=`
+      <div class="plan-info>
+      <strong>${plan.text}</strong>
+      <span class="plan-date">
+      ${plan.date}
+      </span>
+      </div>
+      <button onclick="deletePlan(${index})">
+      ❌
+      </button>
+      `;
+      container.appendChild(div);
+    });
+  }
+  function addPlan(){
+    const text=
+    textInput.value.trim();
+    const date=
+    dateInput.value;
+    if (!text || !date)return;
+    plans.push({
+      text,
+      date
+    });
+    savePlans();
+    rrenderPlans();
+    textInput.value="";
+    dateInput.value="";
+  }
+  window.deletePlan=function(index){
+    plans.splice(index,1);
+    savePlans();
+    renderPlans;
+  }
+  addBtn.addEventListener("click",addPlan);
+  renderPlans();
+})
