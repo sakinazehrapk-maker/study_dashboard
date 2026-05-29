@@ -410,3 +410,55 @@ async function loadWeather() {
 }
 
 loadWeather();
+const notifBtn=
+document.getElementById(
+  "enableNotifications"
+);
+if(notifBtn){
+  notifBtn.addEventListener(
+    "click",
+    enableNotifications
+  );
+}
+function enableNotifications(){
+  if(!("Notification" in window)){
+    alert(
+      "this browser does not support notifications "
+    );
+    return;
+  }
+  Notification.requestPermission()
+  .then(permission =>{
+    if(permission==="granted"){
+      new Notification("Notifications enabled!",
+        {
+          body:"your study reminders are ready!"
+        }
+      );
+      startStudyReminders();
+    }else{
+      alert("notifications were denied"
+      );
+    }
+  });
+}
+function startStudyReminders(){
+  setInterval(()=>{
+    const message=[
+      "time to focus and study!",
+      "keep your streak alive!",
+      "a small study session is better than none!",
+      "stay consistent you got this!",
+      "hydrate and continue your grind!",
+      "time to lock in!"
+    ];
+    const random=Math.floor(
+      Math.random()*messages.length
+    );
+    new Notification("smart study dashboard",
+      {
+        body:messages[random]
+      }
+    );
+  }, 1800000);
+}
