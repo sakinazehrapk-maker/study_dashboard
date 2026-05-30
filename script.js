@@ -329,6 +329,11 @@ setTheme(savedTheme || "pink");
 })();
 
 function markStudyDay() {
+  const todayKey = getTodayKey();
+  heatmapData[todayKey] = true;
+  localStorage.setItem("heatmapData", JSON.stringify(heatmapData));
+  renderHeatmap();
+
   const today = new Date().toDateString();
   const lastStudied = localStorage.getItem("lastStudied");
   let streak = parseInt(localStorage.getItem("streak")) || 0;
@@ -446,7 +451,7 @@ function enableNotifications(){
 }
 function startStudyReminders(){
   setInterval(()=>{
-    const message=[
+    const messages=[
       "time to focus and study!",
       "keep your streak alive!",
       "a small study session is better than none!",
@@ -471,7 +476,7 @@ for(let i=0; i<100; i++){
   document.createElement("div");
   drop.classList.add("rain-drop");
   drop.style.left=
-  Math.random()*1100+"vw";
+  Math.random()*100+"vw";
   drop.style.animationDuration=
   Math.random()*1+0.5+"s";
   drop.style.opacity=
@@ -515,7 +520,7 @@ JSON.parse(
   localStorage.getItem("heatmapData")
 )||{};
 function getTodayKey(){
-  const today=new DataTransfer();
+  const today=new Date();
   return today.toISOString().split("T")[0];
 }
 
@@ -543,14 +548,5 @@ function renderHeatmap() {
   }
 
 }
-function markStudyDay() {
-  const today =
-    getTodayKey();
-  heatmapData[today] = true;
-  localStorage.setItem(
-    "heatmapData",
-    JSON.stringify(heatmapData)
-  );
-  renderHeatmap();
-}
+
 renderHeatmap();

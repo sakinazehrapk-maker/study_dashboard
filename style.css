@@ -16,22 +16,20 @@ html {
 }
 
 body {
-
   margin: 0;
-
   min-height: 100vh;
-
   display: flex;
-
   background: var(--main-bg);
-
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
   transition: background 0.5s ease;
-
   --main-bg: linear-gradient(
-    to right,
+    -45deg,
+    #ff9eb5,
     #ffd6e7,
-    #ffeaf4
-  );
+    #c8b6ff,
+    #b8ffd8
+    );
 }
 .container {
   width: 100%;
@@ -218,7 +216,7 @@ li {
     background:linear-gradient(to right, #ff4f87,#ff9eb5);
 color:white;
 font-weight:bold;
-animation:popIn 0.4sease;
+animation:popIn 0.4 ease;
 }
 @keyframes popin{
     from{
@@ -235,30 +233,7 @@ animation:popIn 0.4sease;
 }
 
 
-body {
 
-  margin: 0;
-
-  min-height: 100vh;
-
-  display: flex;
-
-  background: var(--main-bg);
-
-  background-size: 400% 400%;
-
-  animation: gradientMove 15s ease infinite;
-
-  transition: background 0.5s ease;
-
-  --main-bg: linear-gradient(
-    -45deg,
-    #ff9eb5,
-    #ffd6e7,
-    #c8b6ff,
-    #b8ffd8
-    );
-}
 .sidebar {
 
   width: 250px;
@@ -492,7 +467,7 @@ body {
   min-height:100px;
   resize:none;
 }
-#notescontainer{
+#notesContainer{
   display:flex;
   flex-wrap:wrap;
   gap:15px;
@@ -553,7 +528,7 @@ body {
 }
 .plan-date{
   font-size: 14px;
-  opacity:0.7s;
+  opacity:0.7;
 }
 .plan button{
   border:none;
@@ -628,7 +603,7 @@ body {
 }
 @keyframes twinkle{
   from{
-    opacity:0.2s;
+    opacity:0.2;
   }
   to{
     opacity:1;
