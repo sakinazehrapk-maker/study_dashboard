@@ -153,6 +153,11 @@
       </div>
     </div>
     <div class="card">
+      <h2>study heatmap</h2>
+      <div id="heatmap"></div>
+    </div>
+    
+    <div class="card">
         <h2>productivy analytics</h2>
         <canvas  id="studyChart"></canvas>
     </div>
@@ -167,17 +172,22 @@
 
   </div>
   <div class="card">
-    <h2>Lofi music</h2>
+    <h2>music</h2>
     <div class="music-player">
-        <iframe
-        width="100%"
-        height="250"
-        src="https://www.youtube.com/embed/3jWRrafhO7M"
-        title="Lofi music"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
+      <div class="music-info">
+        <h3>Ghibli music</h3>
+      </div>
     </div>
+    <iframe
+  id="musicFrame"
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/3jWRrafhO7M"
+  title="ghibli music"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>

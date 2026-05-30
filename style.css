@@ -652,3 +652,23 @@ body {
     opacity:1;
   }
 }
+.nusic-player{
+  display:flex;
+  gap:20px;
+  align-items: center;
+}
+
+.music-player {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+}
+.cyber-theme .music-player {
+  box-shadow: 0 0 20px rgba(0,255,247,0.4);
+}
+.forest-theme .music-player {
+  box-shadow: 0 0 20px rgba(74,222,128,0.3);
+}
+.lavender-theme .music-player {
+  box-shadow: 0 0 20px rgba(179,136,255,0.3);
+}

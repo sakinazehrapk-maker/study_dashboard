@@ -508,3 +508,26 @@ for (let i = 0; i < 40; i++) {
     Math.random() * 5 + "s";
   particles.appendChild(particle);
 }
+const musicBtn=
+document.getElementById("toggleMusic");
+const musicFrame=
+document.getElementById("musicFrame");
+let playing=false;
+musicBtn.addEventListener("clicl",()=>{
+  if(!playing){
+    musicFrame.style.display="block";
+    musicFrame.src=
+      "https://www.youtube.com/embed/3jWRrafhO7M";
+      musicBtn.textContent=
+      "⏸ Pause Music";
+      playing=true;
+  }else{
+    musicFrame.src ="";
+    musicFrame.style.display = "none";
+
+    musicBtn.textContent =
+      "▶ Play Music";
+
+    playing = false;
+  }
+});
