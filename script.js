@@ -462,3 +462,49 @@ function startStudyReminders(){
     );
   }, 1800000);
 }
+const rain=
+document.getElementById("rain");
+for(let i=0; i<100; i++){
+  const drop=
+  document.createElement("div");
+  drop.classList.add("rain-drop");
+  drop.style.left=
+  Math.random()*1100+"vw";
+  drop.style.animationDuration=
+  Math.random()*1+0.5+"s";
+  drop.style.opacity=
+  Math.random();
+  rain.appendChild(drop);
+}
+
+const stars =
+  document.getElementById("stars");
+for (let i = 0; i < 80; i++) {
+  const star =
+    document.createElement("div");
+
+  star.classList.add("star");
+  star.style.left =
+    Math.random() * 100 + "vw";
+  star.style.top =
+    Math.random() * 100 + "vh";
+  star.style.animationDuration =
+    Math.random() * 3 + 1 + "s";
+  stars.appendChild(star);
+}
+
+const particles =
+  document.getElementById("particles");
+for (let i = 0; i < 40; i++) {
+  const particle =
+    document.createElement("div");
+
+  particle.classList.add("particle");
+  particle.style.left =
+    Math.random() * 100 + "vw";
+  particle.style.animationDuration =
+    Math.random() * 10 + 10 + "s";
+  particle.style.animationDelay =
+    Math.random() * 5 + "s";
+  particles.appendChild(particle);
+}
