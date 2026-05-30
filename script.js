@@ -101,6 +101,7 @@ function createTask(taskText, completed = false) {
   doneBtn.onclick = () => {
     if (!span.classList.contains("completed")) {
       gainXP(10);
+      markStudyDay();
       tasksCompleted++;
       updateChart();
       localStorage.setItem("tasksCompleted", tasksCompleted);
@@ -166,6 +167,7 @@ function startTimer() {
       timeLeft = 1500;
       document.getElementById("timer").innerText = "25:00";
       gainXP(25);
+      markStudyDay();
       pomodorosCompleted++;
       updateChart();
       localStorage.setItem("pomodorosCompleted", pomodorosCompleted);
@@ -508,26 +510,47 @@ for (let i = 0; i < 40; i++) {
     Math.random() * 5 + "s";
   particles.appendChild(particle);
 }
-const musicBtn=
-document.getElementById("toggleMusic");
-const musicFrame=
-document.getElementById("musicFrame");
-let playing=false;
-musicBtn.addEventListener("clicl",()=>{
-  if(!playing){
-    musicFrame.style.display="block";
-    musicFrame.src=
-      "https://www.youtube.com/embed/3jWRrafhO7M";
-      musicBtn.textContent=
-      "⏸ Pause Music";
-      playing=true;
-  }else{
-    musicFrame.src ="";
-    musicFrame.style.display = "none";
+let heatmapData=
+JSON.parse(
+  localStorage.getItem("heatmapData")
+)||{};
+function getTodayKey(){
+  const today=new DataTransfer();
+  return today.toISOString().split("T")[0];
+}
 
-    musicBtn.textContent =
-      "▶ Play Music";
-
-    playing = false;
+function renderHeatmap() {
+  const container =
+    document.getElementById("heatmap");
+  if (!container) return;
+  container.innerHTML = "";
+  for (let i = 34; i >= 0; i--) {
+    const day =
+      new Date();
+    day.setDate(
+      day.getDate() - i
+    );
+    const key =
+      day.toISOString().split("T")[0];
+    const box =
+      document.createElement("div");
+    box.classList.add("heat-day");
+    if (heatmapData[key]) {
+      box.classList.add("active");
+    }
+    box.title = key;
+    container.appendChild(box);
   }
-});
+
+}
+function markStudyDay() {
+  const today =
+    getTodayKey();
+  heatmapData[today] = true;
+  localStorage.setItem(
+    "heatmapData",
+    JSON.stringify(heatmapData)
+  );
+  renderHeatmap();
+}
+renderHeatmap();
